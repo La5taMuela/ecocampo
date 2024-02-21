@@ -23,11 +23,20 @@ header {
     text-align: left;
 }
 
+.navbar-toggler {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
 .container {
     background-color: rgba(76, 166, 194, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
+
 }
 
 .contenido{
@@ -56,18 +65,6 @@ header {
       height: 80px; /* Altura deseada */
     }
 }
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    height: auto;
-}
-
-.image-container img {
-    max-width: 40%;
-    height: auto;
-}
 
 
 
@@ -81,7 +78,7 @@ header {
 
 
 .site-footer {
-    background-color: #808080;
+    background-color: #20975c;
     color: #000000;
     padding: 30px;
     text-align: center;
@@ -259,3 +256,8 @@ header {
     font-weight: 600;
     }
 }
+
+@media (min-width: 1px){
+    .container{
+    max-width: 540px;
+}}
