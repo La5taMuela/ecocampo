@@ -11,11 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecocampo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <header><nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand navbar-logo text-light" onclick="cargarContenido('inicio.html')"><img src="logo/Ecocampo.png" alt="" width="200px"></a>
+        <a role="button" onclick="cargarContenido('layout/inicio.html')"><img src="logo/Ecocampo.png" alt="" width="200px"></a>
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,29 +24,28 @@
 
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <!-- Plantas -->
+
                         <li class="nav-item">
                             <a class="nav-link text-black" href="/" onclick="cargarContenido('inicio.html')">Inicio</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item dropdown">
                             <a class="nav-link text-black dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Trabajos
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-light text-black">
-                                <li><a class="dropdown-item" onclick="cargarContenido('FosasSepticas.html')">Fosas sépticas</a></li>
+                            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" onclick="cargarContenido('layout/FosasSepticas.html')">Fosas sépticas</a></li>
                                 <li><a class="dropdown-item" onclick="cargarContenido('prevencion.html')">Potabilización de agua</a></li>
 
                             </ul>
                         </li>
-                        <!-- Fin Plantas -->
-                        <!-- Recorrido -->
+
                         <li class="nav-item">
                             <a class="nav-link text-black" onclick="cargarContenido('ciberacoso.html')">
                                 Nuestro trabajo
                             </a>
                         </li>
-                        <!-- Fin Recorrido -->
-                        <li class="nav-item">
+
+                        <li class="nav-item dropdown">
                             <a class="nav-link text-black dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Trabajos extra
                             </a>
@@ -64,17 +64,15 @@
         </nav>
     </header>
 
-    
-
     <section>
-        <div class="container-fluid contenido">
-            <!-- Aquí se cargará el contenido dinámicamente -->
-        </div>
+        <div class="container-fluid contenido "></div>
+        <div class="caroucel-img"></div>
     </section>
+ 
     <script>
-        // Cargar contenido inicial
-        cargarContenido('inicio.html');
-
+                // Cargar contenido inicial
+        cargarContenido('layout/inicio.html');
+        cargarCaroucel('layout/caroucel-img.html');
         // Función para cargar contenido dinámicamente
         function cargarContenido(url) {
             fetch(url)
@@ -86,24 +84,32 @@
                     console.error('Error al cargar el contenido:', error);
                 });
         }
+        function cargarCaroucel(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector('.caroucel-img').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error al cargar el contenido:', error);
+                });
+        }
     </script>
     <footer class="site-footer">
         <div class="container-footer">
         <div class="row">
             <div class="col-sm-12 col-md-8">
             <h6>Sobre Nosotros</h6>
-            <p class="text-justify">En NoCiberbullying, nos dedicamos a combatir el ciberacoso y promover un entorno en línea seguro. Nuestro equipo de expertos trabaja para brindar apoyo a las víctimas, educar a la comunidad y fomentar una cultura de respeto en línea. Valoramos la colaboración con otras organizaciones y nos esforzamos por crear un espacio inclusivo para todos. Únete a nosotros en nuestra misión de acabar con el ciberacoso y construir un futuro digital más seguro y respetuoso. ¡Gracias por formar parte de nuestro movimiento contra el ciberacoso! NoCiberbullying</p>
+            <p class="text-justify"></p>
+                Fosas Ecocampo Instalaciones es una empresa dedicada a la instalación de fosas sépticas ecológicas y sistemas de tratamiento de aguas residuales. Ofrecemos soluciones innovadoras y sostenibles para el tratamiento de aguas residuales domésticas y comerciales, con el objetivo de proteger el medio ambiente y la salud pública.</p>
             </div>
 
-
             <div class="col-xs-6 col-md-4">
-            <h6>Quick Links</h6>
-            <ul class="footer-links">
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">Contribute</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Sitemap</a></li>
+            <h6>Links</h6>
+            <ul class="social-icons">
+                <li><a class="facebook" href="https://web.facebook.com/instalaciondefosas/" target="_blank"><i class="bi bi-facebook"></i></a></li>
+                <li><a class="linkedin" href="https://www.linkedin.com/posts/jose-espinoza-70ba5014a_fosas-ecocampo-instalaciones-activity-7066466249186123776-lFm7?trk=public_profile_share_view"><i class="bi bi-linkedin" target="_blank"></i></a></li>
+                <li><a class="instagram" href="#"><i class="bi bi-instagram" target="_blank"></i></a></li>
             </ul>
             </div>
         </div>
@@ -112,16 +118,9 @@
         <div class="container-footer">
         <div class="row">
             <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2023 NoCiberbullying. Todos los derechos reservados.</p>
-            </div>  
-
-            <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-                <li><a class="facebook" href="#"><i class="bi bi-facebook"></i></a></li>
-                <li><a class="twitter" href="#"><i class="bi bi-twitter"></i></a></li>
-                <li><a class="instagram" href="#"><i class="bi bi-instagram"></i></a></li>
-            </ul>
+            <p class="copyright-text">Copyright &copy; 2023 Ecocampo. Todos los derechos reservados.</p>
             </div>
+
         </div>
         </div>
 </footer>
@@ -132,5 +131,3 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
-</html>
-
